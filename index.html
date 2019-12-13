@@ -5,12 +5,15 @@
     <title></title>
     <link rel="stylesheet" href="stylsheet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
+
   </head>
   <body>
-
+    <h1>To Do List</h1>
+    <div id="time"></div>
     <div class="container">
-      <input type="text" class="txtb" placeholder="Add a task">
+      <input type="text" class="txtb" placeholder="Add a task" >
       <div class="notcomp">
         <h3>Not Completed</h3>
 
@@ -25,15 +28,22 @@
 
 
     <script type="text/javascript">
+      var taskList = JSON.parse(localStorage.getItem("task")) || []
+
+      console.log(taskList)
+
       $(".txtb").on("keyup",function(e){
         //13  means enter button
         if(e.keyCode == 13 && $(".txtb").val() != "")
         {
           var task = $("<div class='task'></div>").text($(".txtb").val());
+          taskList.push($(".txtb").val())
+          localStorage.setItem("task",JSON.stringify(taskList))
           var del = $("<i class='fas fa-trash-alt'></i>").click(function(){
             var p = $(this).parent();
             p.fadeOut(function(){
               p.remove();
+              
             });
           });
 
@@ -52,7 +62,8 @@
           $(".txtb").val("");
         }
       });
+        console.log(localStorage.getItem("task"))
     </script>
-
+     <script type='text/javascript' src='javascript.js' ></script>
   </body>
 </html>

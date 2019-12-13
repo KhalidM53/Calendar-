@@ -1,3 +1,9 @@
+h1{
+    max-width: 800px;
+    margin: auto;
+    padding: 10px;
+}
+
 *{
 margin: 0;
 padding: 0;
@@ -33,7 +39,7 @@ h3{
 
 .task{
     width: 100%;
-    background: rgba(255,255,255,0.5);
+    background: rgba(248, 1, 1, 0.5);
     padding: 18px;
     margin: 6px 0;
      overflow: hidden;
@@ -48,6 +54,12 @@ h3{
 .comp .task{
     background: rgba(0,0,0,5);
     color: #fff;
+}
+
+#time {
+    max-width: 800px;
+    margin: auto;
+    padding: 10px;
 }
 
 
